@@ -13,6 +13,8 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;;
 
 /**
+ * swagger api文档集成配置
+ *
  * @author Created by Tunyl on 2019/7/29.
  * @version 1.0
  */
