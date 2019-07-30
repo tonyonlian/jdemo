@@ -1,6 +1,8 @@
 package com.tongyl.example.jdemosb.aspect;
 
 import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
@@ -26,6 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 public class AccessLogAspect {
     private static final Logger logger = LoggerFactory.getLogger(AccessLogAspect.class);
     ThreadLocal<Long> startTime = new ThreadLocal<>();
+    ObjectMapper mapper = new ObjectMapper();
 
     @Pointcut("execution(public * com.tongyl.example.jdemosb.controller..*.*(..))")
     public void log() {
@@ -46,6 +49,11 @@ public class AccessLogAspect {
 
     @AfterReturning(returning = "result", pointcut = "log()")
     public void doAfterReturning(Object result) {
-        logger.info("RESPONSE ({}ms) : {}", (System.currentTimeMillis() - startTime.get()), JSON.toJSONString(result));
+        try {
+            logger.info("RESPONSE ({}ms) : {}", (System.currentTimeMillis() - startTime.get()),  mapper.writeValueAsString(result));
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            logger.error("RESPONSE log error : {}",e.getMessage());
+        }
     }
 }
