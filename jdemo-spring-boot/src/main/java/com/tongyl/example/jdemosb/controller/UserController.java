@@ -15,15 +15,39 @@ import java.util.List;
  * @version 1.0
  */
 @RestController
-@RequestMapping("/user/*")
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("list")
+    @GetMapping("/list")
     public Result list(){
         List<User> list = userService.list();
         return Result.ok().setData(list);
+    }
+
+    @GetMapping("/query")
+    public User testQuery() {
+        return userService.selectUserByName("Daisy");
+    }
+
+    @GetMapping("/insert")
+    public List<User> testInsert() {
+        userService.insertService();
+        return userService.selectAllUser();
+    }
+
+
+    @GetMapping("/changemoney")
+    public List<User> testchangemoney() {
+        userService.changemoney();
+        return userService.selectAllUser();
+    }
+
+    @GetMapping("/delete")
+    public String testDelete() {
+        userService.deleteService(3);
+        return "OK";
     }
 
 }

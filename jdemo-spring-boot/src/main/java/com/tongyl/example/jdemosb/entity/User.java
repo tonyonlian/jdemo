@@ -5,16 +5,16 @@ package com.tongyl.example.jdemosb.entity;
  * @version 1.0
  */
 public class User {
-    private Long id;
+    private int id;
     private String name;
-    private String phone;
-    private String password;
+    private int age;
+    private double money;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -26,19 +26,19 @@ public class User {
         this.name = name;
     }
 
-    public String getPhone() {
-        return phone;
+    public int getAge() {
+        return age;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public String getPassword() {
-        return password;
+    public double getMoney() {
+        return money;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setMoney(double money) {
+        this.money = money;
     }
 }

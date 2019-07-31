@@ -1,6 +1,7 @@
 package com.tongyl.example.jdemosb.service.user;
 
 import com.tongyl.example.jdemosb.entity.User;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,4 +15,11 @@ public interface UserService {
      * @return
      */
     List<User> list();
+    User selectUserByName(String name);
+    List<User> selectAllUser();
+    void insertService();
+    void deleteService(int id);
+    @Transactional
+    void changemoney();
+
 }
