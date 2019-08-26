@@ -5,6 +5,7 @@ import com.tongyl.example.jdemosb.entity.User;
 import com.tongyl.example.jdemosb.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,6 +13,7 @@ import java.util.List;
 
 /**
  * @author Created by Tunyl on 2019/7/26.
+ *
  * @version 1.0
  */
 @RestController
@@ -26,9 +28,9 @@ public class UserController {
         return Result.ok().setData(list);
     }
 
-    @GetMapping("/query")
-    public User testQuery() {
-        return userService.selectUserByName("Daisy");
+    @GetMapping("/query/{name}")
+    public User testQuery(@PathVariable String name) {
+        return userService.selectUserByName(name);
     }
 
     @GetMapping("/insert")
@@ -49,5 +51,7 @@ public class UserController {
         userService.deleteService(3);
         return "OK";
     }
+
+
 
 }

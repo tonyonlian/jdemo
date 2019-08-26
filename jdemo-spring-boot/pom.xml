@@ -80,6 +80,16 @@
             <version>5.2.4</version>
         </dependency>
 
+        <!--自动生成seter，getter的工具类-->
+        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.8</version>
+            <scope>provided</scope>
+        </dependency>
+
+
 
 
 

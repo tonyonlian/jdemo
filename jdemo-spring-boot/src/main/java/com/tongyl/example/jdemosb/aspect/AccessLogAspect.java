@@ -43,7 +43,7 @@ public class AccessLogAspect {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
         //记录下请求访问日志
-        logger.info("{}, {},IP:{}, REQUEST PARAM :{}", request.getMethod(), request.getRequestURL().toString(), request.getRemoteAddr(), JSON.toJSONString(request.getParameterMap()));
+        logger.info("{}, {},  IP:{}, REQUEST PARAM :{}", request.getMethod(), request.getRequestURL().toString(), request.getRemoteAddr(), JSON.toJSONString(request.getParameterMap()));
 
     }
 

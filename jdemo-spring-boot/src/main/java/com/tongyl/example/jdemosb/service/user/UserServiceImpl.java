@@ -2,6 +2,7 @@ package com.tongyl.example.jdemosb.service.user;
 
 import com.tongyl.example.jdemosb.dao.UserDao;
 import com.tongyl.example.jdemosb.entity.User;
+import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,8 +23,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> list() {
         List<User> list =  new ArrayList<>();
-        User user = new User();
-        user.setId(1);
+        User user = User.builder().age(1).id(1).name("Dave").money(2000).build();
         list.add(user);
         return list;
     }
