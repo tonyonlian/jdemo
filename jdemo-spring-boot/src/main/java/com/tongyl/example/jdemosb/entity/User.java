@@ -8,7 +8,6 @@ import lombok.Data;
  * @version 1.0
  */
 @Data
-@Builder
 public class User {
     private int id;
     private String name;
@@ -20,7 +19,6 @@ public class User {
     }
 
     public User() {
-
     }
 
     //    public int getId() {

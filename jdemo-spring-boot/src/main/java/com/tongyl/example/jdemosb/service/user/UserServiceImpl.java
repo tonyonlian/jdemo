@@ -23,7 +23,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> list() {
         List<User> list =  new ArrayList<>();
-        User user = User.builder().age(1).id(1).name("Dave").money(2000).build();
+        User user = new User(); //User.builder().age(1).id(1).name("Dave").money(2000).build();
+        user.setId(1);
         list.add(user);
         return list;
     }
