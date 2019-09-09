@@ -1,0 +1,22 @@
+
+jvm 加载是会从class文件中创建Class的对象实例，例如User类  ，jvm加载User类时，会先首先创建Class<User> 的实例对象，Class的对象可以反射操作User类的定义方法，字段。。。
+
+1.Constructor (构造函数类)
+1.1 Class<?>
+
+方法返回值	            方法名称	                                                   方法说明
+static Class<?>	    forName(String className)	                        返回与带有给定字符串名的类或接口相关联的 Class 对象。
+Constructor<T>	    getConstructor(Class<?>... parameterTypes)	        返回指定参数类型、具有public访问权限的构造函数对象
+Constructor<?>[]	getConstructors()	                                返回所有具有public访问权限的构造函数的Constructor对象数组
+Constructor<T>	    etDeclaredConstructor(Class<?>... parameterTypes)	返回指定参数类型、所有声明的（包括private）构造函数对象
+Constructor<?>[]	getDeclaredConstructor()	                        返回所有声明的（包括private）构造函数对象
+T	                newInstance()	                                    建此 Class 对象所表示的类的一个新实例。
+
+1.2 Constructor
+方法返回值	        方法名称	                                                   方法说明
+Class<T>	getDeclaringClass()	            返回 Class 对象，该对象表示声明由此 Constructor 对象表示的构造方法的类,其实就是返回真实类型（不包含参数）
+Type[]	    getGenericParameterTypes()	    按照声明顺序返回一组 Type 对象，返回的就是 Constructor对象构造函数的形参类型。
+String	    getName()	                    以字符串形式返回此构造方法的名称。
+Class<?>[]	getParameterTypes()	            按照声明顺序返回一组 Class 对象，即返回Constructor 对象所表示构造方法的形参类型
+T	        newInstance(Object... initargs)	使用此 Constructor对象表示的构造函数来创建新实例(私用构造器会返回异常的）
+String	    toGenericString()	            返回描述此 Constructor 的字符串，其中包括类型参数。

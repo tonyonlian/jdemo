@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="MysqlTables" targetRuntime="MyBatis3">
+        <plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin" />
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/jdemo?serverTimezone=GMT"
+                        userId="root"
+                        password="1q2w3e">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.tongyl.example.jdemoenummybaits.entity"
+                            targetProject="D:/tyl_project/jdemo/jdemo-enum-mybaits/src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--<sqlMapGenerator targetPackage="com.tongyl.example.jdemoenummybaits.mapper"-->
+                         <!--targetProject="./src/main/resources/mapper">-->
+            <!--<property name="enableSubPackages" value="true" />-->
+        <!--</sqlMapGenerator>-->
+
+        <javaClientGenerator type="ANNOTATEDMAPPER"
+                             targetPackage="com.tongyl.example.jdemoenummybaits.mapper"
+                             targetProject="D:/tyl_project/jdemo/jdemo-enum-mybaits/src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="t_computer" domainObjectName="Computer" >
+            <!--<generatedKey column="id" sqlStatement="CALL IDENTITY()" identity="true" />-->
+            <columnOverride column="computer_state" javaType="com.tongyl.example.jdemoenummybaits.emum.ComputerState" jdbcType="INTEGER"
+                            typeHandler="com.tongyl.example.jdemoenummybaits.handler.CodeEnumTypeHandler"/>
+        </table>
+    </context>
+</generatorConfiguration>

@@ -54,6 +54,8 @@ public class AccessLogAspect {
         } catch (JsonProcessingException e) {
             e.printStackTrace();
             logger.error("RESPONSE log error : {}",e.getMessage());
+        }finally {
+            startTime.remove();
         }
     }
 }
