@@ -28,17 +28,17 @@ public class Test {
 //        reader.loadBeanDefinitions(res);
 //        // create and configure beans
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
-        ((ClassPathXmlApplicationContext) context).addApplicationListener(c ->{
-            System.out.println(c.getSource().toString());
-
-        });
+//        ((ClassPathXmlApplicationContext) context).addApplicationListener(c ->{
+//            System.out.println(c.getSource().toString());
+//
+//        });
         ApplicationEvent event = new ApplicationContextEvent(context) {
             @Override
             public Object getSource() {
                 return super.getSource();
             }
         };
-        context.publishEvent(event);
+     //   context.publishEvent(event);
         Car car = context.getBean("car", Car.class);
         System.out.println(car.toString());
 

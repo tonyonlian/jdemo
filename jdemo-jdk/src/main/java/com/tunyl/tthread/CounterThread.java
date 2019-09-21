@@ -19,6 +19,7 @@ public class CounterThread extends Thread {
         int num = 100;
         Counter counter = new Counter();
         Thread[] threads = new Thread[num];
+        long t1 = System.currentTimeMillis();
         for (int i=0;i<num;i++) {
             threads[i] = new CounterThread(counter);
             threads[i].start();
@@ -27,7 +28,8 @@ public class CounterThread extends Thread {
         for (int i =0;i<num;i++) {
             threads[i].join();
         }
-        System.out.println(counter.getCount());
+        long t2 = System.currentTimeMillis();
+        System.out.println("Count:"+ counter.getCount()+"  useTime:"+ (t2-t1));
 
     }
 }

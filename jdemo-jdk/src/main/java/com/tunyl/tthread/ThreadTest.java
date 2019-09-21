@@ -1,5 +1,7 @@
 package com.tunyl.tthread;
 
+import java.util.concurrent.atomic.AtomicStampedReference;
+
 /**
  * @author Created by Tunyl on 2019/9/14.
  * @version 1.0
@@ -16,13 +18,12 @@ public class ThreadTest implements Runnable {
         t2.start();
         t1.join();
         t2.join();
-        System.out.println("over");
+        System.out.println("hello world");
 
     }
 
     @Override
     public void run() {
-
         System.out.println("run() Thread name  :" + Thread.currentThread().getName() + " id:" + Thread.currentThread().getId());
     }
 }
