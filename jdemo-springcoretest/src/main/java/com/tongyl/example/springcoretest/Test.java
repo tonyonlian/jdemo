@@ -20,13 +20,13 @@ import java.io.IOException;
  */
 public class Test {
     public static void main(String[] args) throws IOException {
-//        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-//        Resource res = resolver.getResource("classpath:bean.xml");
-//
-//        DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
-//        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
-//        reader.loadBeanDefinitions(res);
-//        // create and configure beans
+        ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        Resource res = resolver.getResource("classpath:bean.xml");
+
+        DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
+        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
+        reader.loadBeanDefinitions(res);
+        // create and configure beans
         ApplicationContext context = new ClassPathXmlApplicationContext("bean.xml");
 //        ((ClassPathXmlApplicationContext) context).addApplicationListener(c ->{
 //            System.out.println(c.getSource().toString());

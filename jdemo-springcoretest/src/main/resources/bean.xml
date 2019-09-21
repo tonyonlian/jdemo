@@ -6,8 +6,9 @@
 
     <bean id="car"
           class="com.tongyl.example.springcoretest.model.Car"
-          p:color="red"
-          p:brand="audi"
+          init-method="myInit"
+          destroy-method="myDestroy"
+          p:brand="红旗CA72"
           p:maxSpeed="200"/>
 
 
