@@ -1,0 +1,30 @@
+@startuml
+(*)  --> "调用InstantiationAwareBeanPostProccessor的
+postProcessBeforeInstantiation()方法"
+--> "实例化"
+--> "调用InstantiationAwareBeanPostProccessor的
+postProcessAfterInstantiation()方法"
+--> "调用InstantiationAwareBeanPostProccessor的
+postProcessPropertyValues()方法"
+--> "设置属性"
+--> "调用BeanNameAware的
+setBeanName()方法"
+--> "调用BeanFactoryAware的
+setBeanFactory()方法"
+--> "调用BeanPostProcessor的
+postProcessBeforeInitialization()方法"
+--> "调用InitializingBean的
+afterPropertiesSet()方法"
+--> "通过init-method属性配置的初始化方法"
+--> "调用BeanPostProcessor的
+postProcessAfterInitialization()方法"
+
+If "bean type" then
+--> [prototype] "将准备就绪Bean交给调用者"
+else
+--> [singleton] "spring 缓存池中准备就绪的Bean"
+--> "调用DisposableBean的detroy()方法"
+--> "通过destory-method属性配置的销毁方法"
+Endif
+-->(*)
+@enduml

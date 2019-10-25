@@ -18,8 +18,6 @@ public class MyClassLoader extends ClassLoader{
 
     }
 
-
-
     public static void main(String[] args) throws ClassNotFoundException {
         MyClassLoader cl1 = new MyClassLoader();
         String className = "com.tunyl.iodemo.ReadF";
