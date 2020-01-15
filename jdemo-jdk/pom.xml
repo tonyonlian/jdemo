@@ -62,33 +62,9 @@
             <version>28.1-jre</version>
         </dependency>
 
-
-
-
-        <dependency>
-            <groupId>com.tunyl</groupId>
-            <artifactId>maven-repo-sampler</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-
-
-
-
     </dependencies>
 
 
-    <repositories>
-        <repository>
-            <id>maven-repo-github</id>
 
-            <!-- /用户名/仓库名/分支名/-->
-            <url>https://github.com/tonyonlian/maven-repo/dependency/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
 
 </project>
