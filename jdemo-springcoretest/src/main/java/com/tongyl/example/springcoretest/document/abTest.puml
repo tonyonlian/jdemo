@@ -1,0 +1,89 @@
+@startuml
+== 创建abtest ==
+actor user
+user -> lightPlatform : 1.创建应用
+activate lightPlatform
+lightPlatform --> user : 返回ok
+deactivate lightPlatform
+
+user -> lightPlatform : 2(1).下载sdk
+activate lightPlatform
+lightPlatform -> user : 返回ok
+deactivate lightPlatform
+
+user -> lightPlatform : 2(2).创建test
+activate lightPlatform
+lightPlatform -> lightPlatform : 2.1(1)设置变量
+
+
+client -->gw :2.1(2)获取实验信息
+activate gw
+gw -->ab_service:转发
+activate ab_service
+ab_service ->gw :返回ok
+deactivate ab_service
+gw --> client:返回实验变量
+deactivate gw
+
+client --> client :2.1(2)可视化编辑
+activate client
+deactivate client
+client--> gw :2.1(2)保存可视化编辑完的结果
+activate gw
+gw --> ab_service:转发
+activate ab_service
+ab_service ->gw :返回 ok
+deactivate ab_service
+gw -->client :返回保存成功
+deactivate gw
+
+
+lightPlatform -> lightPlatform : 2.2(1)设置指标(自定义指标）
+
+client --> gw:2.2(2) :可视化绑定指标
+activate gw
+gw --> ab_service :转发
+activate ab_service
+ab_service --> gw:返回ok
+deactivate ab_service
+gw --> client:返回绑定成功
+deactivate gw
+
+
+lightPlatform -> lightPlatform : 2.3.设置分流
+lightPlatform -> lightPlatform : 2.4.设置分组
+
+lightPlatform --> user : 返回ok
+deactivate lightPlatform
+
+
+== 集成sdk ==
+user -> client : 集成sdk
+
+note left of gw #aqua
+   参数 appkey，clientId，
+   udid，systeminfo，
+   model，appid
+
+end note
+client -> gw : 获取实验变量与指标
+activate gw
+
+
+gw ->gw : 受众过滤
+activate gw
+deactivate gw
+
+gw -> gw: 流量分配
+activate gw
+deactivate gw
+
+gw -> ab_service: 获取参数
+activate ab_service
+ab_service -->gw :返回ok
+deactivate ab_service
+gw --> client: 返回ok
+deactivate gw
+
+
+@enduml

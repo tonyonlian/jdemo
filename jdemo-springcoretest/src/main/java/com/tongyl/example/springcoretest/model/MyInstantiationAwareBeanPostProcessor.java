@@ -34,7 +34,7 @@ public class MyInstantiationAwareBeanPostProcessor extends InstantiationAwareBea
     public PropertyValues postProcessPropertyValues(PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName) throws BeansException {
 //        3-1 仅对容器中car bean处理，还可以通过pds入参进行过滤，仅对car的特定属性进行处理
         if("car".equals(beanName)){
-            System.out.println("调用： InstantiationAwareBeanPostProcessor.postProcessPropertyValues ");
+            System.out.println("调用：InstantiationAwareBeanPostProcessor.postProcessPropertyValues ");
         }
         return pvs;
     }

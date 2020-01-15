@@ -3,7 +3,7 @@
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd">
-<!--    作用于BeanLifeCycle,演示BeanFactory的生命周期-->
+<!--    使用于ApplicationContextLifeCycle的类，演示ApplicationContext的生命周期-->
 
     <bean id="car"
           class="com.tongyl.example.springcoretest.model.Car"
@@ -12,5 +12,8 @@
           p:brand="红旗CA72"
           p:maxSpeed="200"/>
 
-
+    <!--    使用于applicationContext-->
+    <bean id="myBeanPostProcessor" class="com.tongyl.example.springcoretest.model.MyBeanPostProcessor" />
+    <bean id="myInstantiationAwareBeanPostProcessor" class="com.tongyl.example.springcoretest.model.MyInstantiationAwareBeanPostProcessor"/>
+    <bean id="myBeanFactoryPostProcessor" class="com.tongyl.example.springcoretest.model.MyBeanFactoryPostProcessor" />
 </beans>

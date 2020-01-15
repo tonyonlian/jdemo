@@ -1,0 +1,71 @@
+@startuml
+
+== dns查询 ==
+client -> dns: 调用 /mgw.htm?domain=confUrlhost
+activate dns
+dns --> client: 返回一组ip
+deactivate dns
+== 获取config ==
+client -> gw : https://ip:port/g/s/v/api/token?spp_key=xxx&Signature=yyy
+note left #aqua
+	使用LICENSE中
+	的app_key作为appsecret签名
+end note
+activate gw
+gw --> gw : signature check
+gw --> client : check failed 返回401
+
+gw -> configServer : check succeeded 转发
+activate configServer
+configServer --> gw :返回token
+deactivate configServer
+gw --> client : 返回 200 ok (返回token）
+deactivate gw
+
+
+client -> gw : https://ip:port/g/s/v/cfc/get_config?spp_key=xxx&Signature=yyy
+note left #aqua
+	使用token签名
+end note
+activate gw
+gw --> gw : signature check
+gw --> client : check failed 返回401
+
+gw -> configServer : check succeeded 转发
+activate configServer
+configServer --> gw :返回配置 result
+deactivate configServer
+gw --> client : 返回 200 ok (配置 result）
+deactivate gw
+
+== 调用端服务 ==
+client ->client :解析config ，获取服务server ,g/s/v ,appsecrect
+
+client -> dns  :调用 /mgw.htm?domain=serverhost
+activate dns
+dns --> client: 返回一组ip
+deactivate dns
+
+client -> gw : https://ip:port/g/s/v/build/apppkg?spp_key=xxx&Signature=yyy(离线包为例）
+activate gw
+
+note left #aqua
+	config有appsecret的字段，
+	则调用服务使用appsecret签名，
+	如果没有使用LICENSE中
+	的app_key作为appsecret签名
+end note
+
+gw --> gw : signature check
+gw --> client : check failed 返回401
+
+gw -> deployServer : check succeeded 转发
+activate deployServer
+deployServer --> gw :返回配置 result
+deactivate deployServer
+gw --> client : 返回 200 ok (配置 result）
+deactivate gw
+
+
+
+@enduml

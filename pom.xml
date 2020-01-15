@@ -30,6 +30,10 @@
 		<module>jdemo-jdk</module>
 		<module>jdemo-springcoretest</module>
 		<module>jdemo-geek-datasource</module>
+		<module>jdemo-mysql</module>
+		<module>jdemo-grpc</module>
+		<module>jdemo-netty</module>
+
 	</modules>
 
 	<!-- 版本说明：这里统一管理依赖的版本号 -->
@@ -40,6 +44,24 @@
 				<!--<artifactId>spring-boot-starter-test</artifactId>-->
 				<!--<scope>test</scope>-->
 			<!--</dependency>-->
+		  <!--log4j的实现层-->
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.17</version>
+			</dependency>
+			<!--日志门面接口-->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>1.7.21</version>
+			</dependency>
+			<!--slf4j使用log4j的实现-->
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>1.7.21</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
