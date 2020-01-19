@@ -62,6 +62,25 @@
             <version>28.1-jre</version>
         </dependency>
 
+<!--        protobuf 的序列化工具类 ：For the core formats (protostuff and protobuf)-->
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+<!--       protobuf 的序列化工具类 ：For schemas generated at runtime-->
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-runtime</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+<!--        redis client lettuce-->
+        <dependency>
+            <groupId>io.lettuce</groupId>
+            <artifactId>lettuce-core</artifactId>
+            <version>5.2.1.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
 

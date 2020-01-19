@@ -30,10 +30,22 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jetty</artifactId>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-alpn-conscrypt-server -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-alpn-conscrypt-server</artifactId>
+        </dependency>
+        <!--jetty http2协支持的依赖 start -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.eclipse.jetty.http2</groupId>
+            <artifactId>http2-server</artifactId>
+        </dependency>
+        <!--jetty http2协支持的依赖 end -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -89,7 +101,6 @@
             <version>1.1.18</version>
         </dependency>
 
-
         <!--管理增量sql脚本-->
         <dependency>
             <groupId>org.flywaydb</groupId>
@@ -122,7 +133,13 @@
 
 
 
-
+        <!-- https://mvnrepository.com/artifact/io.grpc/protoc-gen-grpc-java -->
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>protoc-gen-grpc-java</artifactId>
+            <version>1.26.0</version>
+            <type>pom</type>
+        </dependency>
 
     </dependencies>
 
