@@ -2,7 +2,6 @@ package com.tongyl.example.jdemosb.service.user;
 
 import com.tongyl.example.jdemosb.dao.UserDao;
 import com.tongyl.example.jdemosb.entity.User;
-import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

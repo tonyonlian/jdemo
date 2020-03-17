@@ -1,0 +1,11 @@
+syntax = "proto3";
+option java_outer_classname = "UserInfo";
+option java_package = "com.tongyl.example.jdemosb.entity.protoentity";
+option java_multiple_files = true;
+
+message user_info {
+    int64 id = 1;
+    string name = 2;
+    int32 age = 3;
+    double money = 4;
+}

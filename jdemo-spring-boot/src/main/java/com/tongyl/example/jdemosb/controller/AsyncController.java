@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 /**
- * 异步调用
+ * 异步调用示例
  * @author create by Tunyl on 2020/1/14
  * @version 1.0
  */

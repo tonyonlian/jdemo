@@ -50,10 +50,11 @@ public class AccessLogAspect {
     @AfterReturning(returning = "result", pointcut = "log()")
     public void doAfterReturning(Object result) {
         try {
-            logger.info("RESPONSE ({}ms) : {}", (System.currentTimeMillis() - startTime.get()),  mapper.writeValueAsString(result));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-            logger.error("RESPONSE log error : {}",e.getMessage());
+            //返回的结果如果是protobuf，则不不能使用json解析
+            logger.info("RESPONSE ({}ms) : {}", (System.currentTimeMillis() - startTime.get()), result);
+       // } catch (JsonProcessingException e) {
+        //    e.printStackTrace();
+       //     logger.error("RESPONSE log error : {}",e.getMessage());
         }finally {
             startTime.remove();
         }

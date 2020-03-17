@@ -18,6 +18,7 @@ public class ProtoTest {
         gpsBuilder.setDirection(30.2F);
         gpsBuilder.setId(100L);
 
+
         GpsDataProto.gps_data gpsData = gpsBuilder.build();
         System.out.println(gpsData.toString());
 

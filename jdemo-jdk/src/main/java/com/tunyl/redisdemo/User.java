@@ -1,6 +1,5 @@
-package com.tunyl.protostuffdemo;
+package com.tunyl.redisdemo;
 
-import io.protostuff.LinkBuffer;
 import io.protostuff.LinkedBuffer;
 import io.protostuff.ProtobufIOUtil;
 import io.protostuff.Schema;
