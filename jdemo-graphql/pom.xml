@@ -12,7 +12,7 @@
     <artifactId>jdemo-graphql</artifactId>
 
     <properties>
-        <graphql.version>14.0</graphql.version>
+        <graphql.version>17.4</graphql.version>
     </properties>
 
     <dependencies>
