@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class CustomBean {
-    @Bean
+    @Bean(initMethod = "myInit",destroyMethod = "myDestroy")
     public Car buildCar(){
         Car car = new Car();
         car.setBrand("红旗CA72");
